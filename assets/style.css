@@ -4,3 +4,13 @@
 @media(max-width:900px){.nav-links{gap:15px}.hero-grid{gap:30px}.hero-photo{height:400px}.trust-grid{grid-template-columns:repeat(2,1fr)}.course-grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}.split{gap:35px}}
 @media(max-width:700px){.container{width:min(100% - 30px,1160px)}.topbar .container{justify-content:center}.topbar .top-extra{display:none}.nav-wrap{height:68px}.menu-toggle{display:block}.nav-actions .btn{display:none}.nav-links{display:none;position:absolute;left:0;right:0;top:68px;background:#fff;border-bottom:1px solid var(--line);padding:18px 22px 22px;flex-direction:column;align-items:stretch;gap:0;box-shadow:0 15px 25px #10284b12}.nav-links.open{display:flex}.nav-links a{padding:12px 4px;border-bottom:1px solid #f0f3f8}.hero{padding:50px 0 42px}.hero-grid,.split,.project-band,.contact-grid,.course-detail{grid-template-columns:1fr}.hero-grid{gap:38px}.hero-photo{height:330px}.float-one{left:8px;bottom:15px}.float-two{right:8px;top:12px}.hero-copy>p{font-size:15px}.trust-grid{gap:17px}.trust-item{align-items:flex-start}.section{padding:62px 0}.section-head{margin-bottom:30px}.course-grid,.testimonial-grid,.about-values{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.project-band{padding:30px 23px}.cta-inner{align-items:flex-start;flex-direction:column}.footer-grid{grid-template-columns:1fr 1fr;gap:28px}.footer-grid>div:first-child{grid-column:1/-1}.footer-bottom{flex-direction:column}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.contact-form,.contact-panel{padding:23px}.page-hero{padding:50px 0}.whatsapp{right:13px;bottom:13px;padding:11px 15px}}
 @media(max-width:420px){.steps,.trust-grid,.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}.hero-buttons .btn{width:100%}}
+
+
+<article class="update-card">
+  <img src="student5.jpg" alt="Student Name">
+  <div class="update-content">
+    <span class="update-tag">PLACEMENT UPDATE</span>
+    <h3>Student Name</h3>
+    <p>Successfully placed at ABC Technologies as a Linux Administrator.</p>
+  </div>
+</article>

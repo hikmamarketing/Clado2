@@ -1,4 +1,11 @@
 {
-  "students": [],
-  "companies": []
+  "students": [
+    {
+      "name": "neha",
+      "photo": "uploads/stu1.jpg",
+      "company": "xyz firm",
+      "designation": "linux admin",
+      "published": true
+    }
+  ]
 }

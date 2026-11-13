@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore current career opportunities at Clado Solutions.">
+  <title>Careers | Clado Solutions</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .career-intro{max-width:720px}.career-list{display:grid;gap:22px;margin-top:34px}
+    .career-card{background:#fff;border:1px solid #e8eaf0;border-radius:18px;padding:28px;box-shadow:0 12px 35px rgba(24,35,66,.05)}
+    .career-card h2{font-size:1.35rem;margin:0 0 14px;color:#182342}
+    .career-meta{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 18px}
+    .career-meta span{background:#f2f5fb;color:#46516a;border-radius:30px;padding:7px 12px;font-size:.85rem}
+    .career-card p{color:#5b6477;line-height:1.75}
+    .career-card h3{font-size:1rem;margin:22px 0 9px;color:#182342}
+    .career-card ul{padding-left:20px;color:#5b6477;line-height:1.8}
+    .career-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px;padding-top:18px;border-top:1px solid #edf0f5}
+    .career-deadline{font-size:.88rem;color:#687187}
+    .empty-state{margin-top:32px;padding:42px 28px;text-align:center;background:#f6f8fc;border:1px dashed #d9dfeb;border-radius:18px}
+    .empty-state h2{margin:0 0 10px;color:#182342}.empty-state p{color:#687187;max-width:540px;margin:0 auto 20px;line-height:1.7}
+    .loading-state{color:#687187;padding:30px 0}
+    @media(max-width:600px){.career-card{padding:22px}.career-bottom{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Clado Solutions home"><span class="brand-mark">C</span><span>CLADO <strong>SOLUTIONS</strong></span></a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="projects.html">Learning Experience</a>
+        <a class="active" href="careers.html">Careers</a>
+        <a href="placements.html">Placement Updates</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumbs"><a href="index.html">Home</a> / Careers</div>
+        <div class="career-intro">
+          <p class="eyebrow">Build your future with us</p>
+          <h1>Career Opportunities</h1>
+          <p>Explore the latest openings and take the next step in your professional journey. We’ll keep this page updated whenever a new opportunity becomes available.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">Join our network</span><h2>Current Openings</h2><p>Find a role that matches your skills and ambitions.</p></div>
+        </div>
+        <div id="career-list" class="career-list" aria-live="polite"><p class="loading-state">Loading current opportunities…</p></div>
+        <div id="career-empty" class="empty-state" hidden>
+          <h2>No current openings</h2>
+          <p>There are no vacancies listed right now. Please check back soon, or get in touch with our team to share your profile for future opportunities.</p>
+          <a class="btn" href="https://wa.me/918891409152" target="_blank" rel="noopener">Contact us on WhatsApp</a>
+        </div>
+        <p id="career-error" class="loading-state" hidden>We couldn’t load the vacancies right now. Please refresh the page or contact our team.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><a class="brand footer-brand" href="index.html"><span class="brand-mark">C</span><span>CLADO <strong>SOLUTIONS</strong></span></a><p>Empowering learners with practical skills, industry knowledge and career-focused training.</p></div>
+      <div><h3>Quick Links</h3><div class="footer-links"><a href="about.html">About</a><a href="courses.html">Courses</a><a href="careers.html">Careers</a><a href="placements.html">Placement Updates</a><a href="contact.html">Contact</a></div></div>
+      <div><h3>Get in touch</h3><div class="footer-links"><a href="tel:+918891409152">+91 88914 09152</a><a href="mailto:info@cladosolutions.in">info@cladosolutions.in</a><span>Vettikat Tower, Opp. Petrol Pump, Near SL Plaza, Palarivattom, Ernakulam, Kerala 682025</span></div></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span data-year></span> Clado Solutions. All rights reserved.</span></div>
+  </footer>
+  <a class="whatsapp" href="https://wa.me/918891409152" target="_blank" rel="noopener" aria-label="Chat with Clado Solutions on WhatsApp">WhatsApp</a>
+  <script src="assets/site.js"></script>
+  <script>
+    const careerList = document.getElementById('career-list');
+    const careerEmpty = document.getElementById('career-empty');
+    const careerError = document.getElementById('career-error');
+    const safe = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    const prettyDate = value => { if (!value) return ''; const d = new Date(value + 'T00:00:00'); return Number.isNaN(d.getTime()) ? value : d.toLocaleDateString(undefined,{day:'numeric',month:'short',year:'numeric'}); };
+    fetch('content/careers.json').then(r => { if (!r.ok) throw new Error('Could not load vacancies'); return r.json(); }).then(items => {
+      const jobs = (Array.isArray(items) ? items : []).filter(job => job && job.published === true);
+      careerList.innerHTML = '';
+      if (!jobs.length) { careerEmpty.hidden = false; return; }
+      careerList.innerHTML = jobs.map(job => {
+        const requirements = Array.isArray(job.requirements) ? job.requirements.filter(Boolean) : [];
+        const apply = job.application_url ? safe(job.application_url) : 'https://wa.me/918891409152';
+        return `<article class="career-card">
+          <h2>${safe(job.title || 'Career Opportunity')}</h2>
+          <div class="career-meta">${[job.location,job.job_type,job.experience].filter(Boolean).map(x => `<span>${safe(x)}</span>`).join('')}</div>
+          ${job.description ? `<p>${safe(job.description).replace(/\n/g,'<br>')}</p>` : ''}
+          ${requirements.length ? `<h3>What we’re looking for</h3><ul>${requirements.map(x => `<li>${safe(x)}</li>`).join('')}</ul>` : ''}
+          <div class="career-bottom"><span class="career-deadline">${job.deadline ? 'Application deadline: ' + safe(prettyDate(job.deadline)) : 'Applications are welcome'}</span><a class="btn" href="${apply}" target="_blank" rel="noopener">Apply Now</a></div>
+        </article>`;
+      }).join('');
+    }).catch(() => { careerList.innerHTML = ''; careerError.hidden = false; });
+  </script>
+</body>
+</html>

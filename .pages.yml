@@ -1,7 +1,7 @@
 
 media:
   input: uploads
-  output: /uploads
+  output: uploads
 
 content:
   - name: careers
@@ -9,41 +9,37 @@ content:
     type: file
     path: content/careers.json
     format: json
+    list: true
     fields:
-      - name: jobs
-        label: Vacancies
-        type: object
+      - name: title
+        label: Job Title
+        type: string
+        required: true
+      - name: location
+        label: Location
+        type: string
+      - name: job_type
+        label: Job Type
+        type: string
+      - name: experience
+        label: Experience
+        type: string
+      - name: description
+        label: Job Description
+        type: text
+      - name: requirements
+        label: Requirements
+        type: string
         list: true
-        fields:
-          - name: title
-            label: Job Title
-            type: string
-            required: true
-          - name: location
-            label: Location
-            type: string
-          - name: job_type
-            label: Job Type
-            type: string
-          - name: experience
-            label: Experience
-            type: string
-          - name: description
-            label: Job Description
-            type: text
-          - name: requirements
-            label: Requirements
-            type: string
-            list: true
-          - name: deadline
-            label: Application Deadline
-            type: date
-          - name: application_url
-            label: Application Link
-            type: string
-          - name: published
-            label: Publish Vacancy
-            type: boolean
+      - name: deadline
+        label: Application Deadline
+        type: date
+      - name: application_url
+        label: Application Link
+        type: string
+      - name: published
+        label: Publish Vacancy
+        type: boolean
 
   - name: placements
     label: Placement Updates

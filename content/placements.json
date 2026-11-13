@@ -5,6 +5,14 @@
       "photo": "uploads/stu1.jpg",
       "company": "xyz firm",
       "designation": "linux admin",
+      "date": "2026-11-13",
+      "published": true
+    }
+  ],
+  "companies": [
+    {
+      "name": "Turtle soup firm",
+      "logo": "uploads/little-turtle-cartoon-animals-coloring-pages-for-kids-printable-free-colored.png",
       "published": true
     }
   ]

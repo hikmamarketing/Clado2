@@ -1,1 +1,94 @@
 
+media:
+  input: uploads
+  output: /uploads
+
+content:
+  - name: careers
+    label: Career Vacancies
+    type: file
+    path: content/careers.json
+    format: json
+    fields:
+      - name: jobs
+        label: Vacancies
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Job Title
+            type: string
+            required: true
+          - name: location
+            label: Location
+            type: string
+          - name: job_type
+            label: Job Type
+            type: string
+          - name: experience
+            label: Experience
+            type: string
+          - name: description
+            label: Job Description
+            type: text
+          - name: requirements
+            label: Requirements
+            type: string
+            list: true
+          - name: deadline
+            label: Application Deadline
+            type: date
+          - name: application_url
+            label: Application Link
+            type: string
+          - name: published
+            label: Publish Vacancy
+            type: boolean
+
+  - name: placements
+    label: Placement Updates
+    type: file
+    path: content/placements.json
+    format: json
+    fields:
+      - name: students
+        label: Student Placements
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Student Name
+            type: string
+            required: true
+          - name: photo
+            label: Student Photo
+            type: image
+          - name: company
+            label: Company Name
+            type: string
+          - name: designation
+            label: Designation
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: date
+            label: Placement Date
+            type: date
+          - name: published
+            label: Publish Update
+            type: boolean
+      - name: companies
+        label: Company Logos
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Company Name
+            type: string
+          - name: logo
+            label: Company Logo
+            type: image
+          - name: published
+            label: Show Company
+            type: boolean

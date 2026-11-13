@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "title": "Junior Software Developer",
+    "location": "Kochi",
+    "job_type": "FullTIme",
+    "experience": "01",
+    "description": "We are looking for motivated candidates to join our team.",
+    "deadline": "2026-11-20",
+    "application_url": "Contact us",
+    "published": true
+  },
+  {
+    "title": "Job 2",
+    "location": "ekm",
+    "experience": "3-4",
+    "description": "linux aws",
+    "deadline": "2026-11-13",
+    "published": true
+  }
+]

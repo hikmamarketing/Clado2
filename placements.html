@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="See the latest student placement updates and companies connected with Clado Solutions.">
+  <title>Placement Updates | Clado Solutions</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .placement-intro{max-width:760px}.placement-section{padding-top:58px}
+    .student-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:30px}
+    .student-card{overflow:hidden;border:1px solid #e8eaf0;border-radius:18px;background:#fff;box-shadow:0 12px 35px rgba(24,35,66,.05)}
+    .student-photo{height:245px;background:#f1f4f9;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .student-photo img{width:100%;height:100%;object-fit:cover}
+    .student-placeholder{font-size:3rem;font-weight:700;color:#a8b2c5}
+    .student-info{padding:22px}.student-info h3{font-size:1.15rem;color:#182342;margin:0 0 6px}
+    .student-role{font-weight:600;color:#45516b;margin:0 0 4px}.student-company{color:#687187;margin:0 0 14px}
+    .student-info p{color:#687187;line-height:1.65;font-size:.94rem;margin:0}
+    .placement-date{display:block;margin-top:16px;font-size:.82rem;color:#8992a4}
+    .company-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+    .company-card{min-height:112px;padding:20px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #e8eaf0;border-radius:14px}
+    .company-card img{max-width:100%;max-height:65px;object-fit:contain}
+    .company-name{font-weight:700;color:#46516a;text-align:center}
+    .section-empty{color:#687187;padding:24px 0}
+    .loading-state{color:#687187;padding:30px 0}
+    @media(max-width:900px){.student-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.company-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:600px){.student-grid{grid-template-columns:1fr}.student-photo{height:260px}.company-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Clado Solutions home"><span class="brand-mark">C</span><span>CLADO <strong>SOLUTIONS</strong></span></a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="projects.html">Learning Experience</a>
+        <a href="careers.html">Careers</a>
+        <a class="active" href="placements.html">Placement Updates</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumbs"><a href="index.html">Home</a> / Placement Updates</div>
+        <div class="placement-intro">
+          <p class="eyebrow">Learning that leads somewhere</p>
+          <h1>Our Students. Their Success.</h1>
+          <p>Every new role is a milestone worth celebrating. Discover the latest placement updates and the organisations where our learners are building their careers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section placement-section">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow">Real stories, real progress</span><h2>Latest Placement Updates</h2><p>Celebrating our students and their professional achievements.</p></div></div>
+        <div id="student-grid" class="student-grid" aria-live="polite"><p class="loading-state">Loading placement updates…</p></div>
+        <p id="student-empty" class="section-empty" hidden>New student success stories will be shared here soon.</p>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow">Our growing network</span><h2>Where Our Students Work</h2><p>Organisations that are part of our learners’ career journeys.</p></div></div>
+        <div id="company-grid" class="company-grid" aria-live="polite"></div>
+        <p id="company-empty" class="section-empty" hidden>Company highlights will be added here soon.</p>
+        <p id="placement-error" class="loading-state" hidden>We couldn’t load placement updates right now. Please refresh the page.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><a class="brand footer-brand" href="index.html"><span class="brand-mark">C</span><span>CLADO <strong>SOLUTIONS</strong></span></a><p>Empowering learners with practical skills, industry knowledge and career-focused training.</p></div>
+      <div><h3>Quick Links</h3><div class="footer-links"><a href="about.html">About</a><a href="courses.html">Courses</a><a href="careers.html">Careers</a><a href="placements.html">Placement Updates</a><a href="contact.html">Contact</a></div></div>
+      <div><h3>Get in touch</h3><div class="footer-links"><a href="tel:+918891409152">+91 88914 09152</a><a href="mailto:info@cladosolutions.in">info@cladosolutions.in</a><span>Vettikat Tower, Opp. Petrol Pump, Near SL Plaza, Palarivattom, Ernakulam, Kerala 682025</span></div></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span data-year></span> Clado Solutions. All rights reserved.</span></div>
+  </footer>
+  <a class="whatsapp" href="https://wa.me/918891409152" target="_blank" rel="noopener" aria-label="Chat with Clado Solutions on WhatsApp">WhatsApp</a>
+  <script src="assets/site.js"></script>
+  <script>
+    const studentGrid = document.getElementById('student-grid');
+    const companyGrid = document.getElementById('company-grid');
+    const studentEmpty = document.getElementById('student-empty');
+    const companyEmpty = document.getElementById('company-empty');
+    const placementError = document.getElementById('placement-error');
+    const safe = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    const prettyDate = value => { if (!value) return ''; const d = new Date(value + 'T00:00:00'); return Number.isNaN(d.getTime()) ? value : d.toLocaleDateString(undefined,{day:'numeric',month:'short',year:'numeric'}); };
+    fetch('content/placements.json').then(r => { if (!r.ok) throw new Error('Could not load placements'); return r.json(); }).then(data => {
+      const students = Array.isArray(data.students) ? data.students.filter(item => item && item.published === true) : [];
+      const companies = Array.isArray(data.companies) ? data.companies.filter(item => item && item.published === true) : [];
+      studentGrid.innerHTML = '';
+      companyGrid.innerHTML = '';
+      if (students.length) {
+        studentGrid.innerHTML = students.map(student => `<article class="student-card">
+          <div class="student-photo">${student.photo ? `<img src="${safe(student.photo)}" alt="${safe(student.name || 'Student')}" loading="lazy" onerror="this.remove()">` : `<span class="student-placeholder">${safe((student.name || 'C').trim().charAt(0).toUpperCase())}</span>`}</div>
+          <div class="student-info"><h3>${safe(student.name || 'Student')}</h3>
+            ${student.designation ? `<p class="student-role">${safe(student.designation)}</p>` : ''}
+            ${student.company ? `<p class="student-company">${safe(student.company)}</p>` : ''}
+            ${student.description ? `<p>${safe(student.description).replace(/\n/g,'<br>')}</p>` : ''}
+            ${student.date ? `<span class="placement-date">${safe(prettyDate(student.date))}</span>` : ''}
+          </div>
+        </article>`).join('');
+      } else studentEmpty.hidden = false;
+      if (companies.length) {
+        companyGrid.innerHTML = companies.map(company => `<div class="company-card">${company.logo ? `<img src="${safe(company.logo)}" alt="${safe(company.name || 'Company logo')}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'company-name',textContent:${JSON.stringify(company.name || 'Company')}}))">` : `<span class="company-name">${safe(company.name || 'Company')}</span>`}</div>`).join('');
+      } else companyEmpty.hidden = false;
+    }).catch(() => { studentGrid.innerHTML = ''; companyGrid.innerHTML = ''; placementError.hidden = false; });
+  </script>
+</body>
+</html>
